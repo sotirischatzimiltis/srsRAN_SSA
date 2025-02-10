@@ -1,6 +1,8 @@
-# srsRAN_SSA
+# srsRAN Emulator
 
 This repository holds a tutorial on how to create an emulated setup having an RU-DU-CU, to study the O-FH and F1 interfaces. Furthermore, this tutorial demonstrates a signaling storm attack and provides a mitigation strategy.
+
+## System Requirements
 
 ## Step 1: Install Dependencies
 
@@ -52,4 +54,24 @@ srsran_install_test
 
 ## Step 3: Configure RU, DU, and CU
 
-(Instructions for configuring RU, DU, and CU go here.)
+### 1. Navigate to the configuration directory:
+```bash
+cd ~/srsRAN_Project/configs
+```
+### *Configure RU (Radio Unit) Emulator*
+### 2. Open the RU configuration file:
+```bash
+nano ru_emulator.conf
+```
+### 3. Ensure ZeroMQ (ZMQ) is set up for Open Fronthaul communication:
+```bash
+zmq.tx_port0=tcp://*:2001
+zmq.rx_port0=tcp://localhost:2000
+```
+### 4. Save and exit (CTRL+X, then Y, then ENTER).
+### 5. Start the RU emulator:
+```bash
+sudo srsruemu --args "tx_port0=tcp://localhost:2001,rx_port0=tcp://*:2000,id=1"
+```
+
+### *Configure DU (Distributed Unit)*
