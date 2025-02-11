@@ -90,6 +90,12 @@ cd build/
 cmake ../ -DENABLE_EXPORT=ON -DENABLE_ZEROMQ=ON
 make -j`nproc`
 ```
+
+```bash
+sudo make install
+sudo ldconfig
+```
+
 Move to correct directory
 ```bash
 cd /srsRAN_4G/build/srsue/
@@ -106,7 +112,7 @@ sudo ip netns list
 
 Start the UE
 ```bash
-sudo ./srsue /home/srsran-zmq/srsRAN_Project/configs/ue_zmq.conf
+sudo srsue /home/srsran-zmq/srsRAN_Project/configs/ue_zmq.conf
 ```
 
 
