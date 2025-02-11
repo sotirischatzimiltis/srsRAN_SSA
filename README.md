@@ -106,7 +106,7 @@ sudo ip netns list
 
 Start the UE
 ```bash
-sudo ./srsue ue_rf.conf
+sudo ./srsue /home/srsran-zmq/srsRAN_Project/configs/ue_zmq.conf
 ```
 
 
