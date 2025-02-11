@@ -20,6 +20,10 @@ sudo apt install -y tcpdump wireshark iperf3 net-tools
 sudo apt-get install libzmq3-dev
 ```
 
+```bash
+sudo apt install git
+```
+
 ## Step 2: Clone and Build srsRAN 5G
 
 ### 1. Clone the latest srsRAN 5G repository and built:
