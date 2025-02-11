@@ -104,4 +104,9 @@ To verify the new “ue1” network namespace exists, run:
 sudo ip netns list
 ```
 
+Start the UE
+```bash
+sudo ./srsue ue_rf.conf
+```
+
 
