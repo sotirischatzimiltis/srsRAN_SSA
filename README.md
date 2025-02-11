@@ -42,27 +42,12 @@ sudo make install
 sudo ldconfig
 ```
 
-## Step 3: Install 5G core 
-Visit open 5g core webpage: https://open5gs.org/open5gs/docs/guide/01-quickstart/
+## Step 3: Build 5G core 
+Install docker: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04
 
-### 1. Navigate to the configuration directory:
+### 1. Navigate to the docker directory and build:
 ```bash
-cd ~/srsRAN_Project/configs
-```
-### *Configure RU (Radio Unit) Emulator*
-### 2. Open the RU configuration file:
-```bash
-nano ru_emulator.conf
-```
-### 3. Ensure ZeroMQ (ZMQ) is set up for Open Fronthaul communication:
-```bash
-zmq.tx_port0=tcp://*:2001
-zmq.rx_port0=tcp://localhost:2000
-```
-### 4. Save and exit (CTRL+X, then Y, then ENTER).
-### 5. Start the RU emulator:
-```bash
-sudo srsruemu --args "tx_port0=tcp://localhost:2001,rx_port0=tcp://*:2000,id=1"
+cd ~/srsRAN_Project/docker
+sudo docker compose up --build 5gc
 ```
 
-### *Configure DU (Distributed Unit)*
