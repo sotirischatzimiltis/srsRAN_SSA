@@ -115,4 +115,8 @@ Start the UE
 sudo srsue /home/srsran-zmq/srsRAN_Project/configs/ue_zmq.conf
 ```
 
+## Signaling Storm Attack 
+Here we are going to attempt to change the random number used in the UL RRC Setup Request used by the UE to initiate the RRC connection. 
 
+The code we are interested is located in **srsRAN_4G/srsue/src/stack/rrc_nr/** and is the **rrc_nr.cc** script
+Line code **617** assigns the random value to the **ue_id** as follows:  **rrc_setup_req->ue_id.set_random_value();**
