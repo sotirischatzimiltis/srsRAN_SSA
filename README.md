@@ -90,9 +90,10 @@ cd build/
 cmake ../ -DENABLE_EXPORT=ON -DENABLE_ZEROMQ=ON
 make -j`nproc`
 ```
-
-
-
+Move to correct directory
+```bash
+cd /srsRAN_4G/build/srsue/
+```
 When using the ZMQ-based RF driver in the srsUE, it is important to create an appropriate network namespace in the host machine. This is achieved with the following command:
 ```bash
 sudo ip netns add ue1
