@@ -80,4 +80,28 @@ Install dependencies
 ```bash
 sudo apt-get install build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev git curl jq -y
 ```
+Clone srsRAN_Project 4G since the ue is located there
+
+```bash
+apt-get install build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev git curl jq -y
+git clone https://github.com/srsRAN/srsRAN_4G.git
+cd srsRAN_4G/
+mkdir build
+cd build/
+cmake ../ -DENABLE_EXPORT=ON -DENABLE_ZEROMQ=ON
+make -j`nproc`
+```
+
+
+
+When using the ZMQ-based RF driver in the srsUE, it is important to create an appropriate network namespace in the host machine. This is achieved with the following command:
+```bash
+sudo ip netns add ue1
+```
+
+To verify the new “ue1” network namespace exists, run:
+```bash
+sudo ip netns list
+```
+
 
