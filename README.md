@@ -118,5 +118,11 @@ sudo srsue /home/srsran-zmq/srsRAN_Project/configs/ue_zmq.conf
 ## Signaling Storm Attack 
 Here we are going to attempt to change the random number used in the UL RRC Setup Request used by the UE to initiate the RRC connection. 
 
-The code we are interested is located in **srsRAN_4G/srsue/src/stack/rrc_nr/** and is the **rrc_nr.cc** script
-Line code **617** assigns the random value to the **ue_id** as follows:  **rrc_setup_req->ue_id.set_random_value();**
+The code we are interested is located in **srsRAN_4G/srsue/src/stack/rrc_nr/** and is the **rrc_nr.cc** script.
+
+Line code **617** assigns the random value to the **ue_id** as follows:  **rrc_setup_req->ue_id.set_random_value();**.
+
+Since the ASN.1 formal notation is used for describing data transmitted by telecommunications protocols, we need to find out the structure. 
+
+We observe the header file **rrc_nr.h** located in **srsRAN_4G/lib/include/srsran/asn1**, in line **7686** we can see the struct for the **init_ue_id_c**. 
+
