@@ -127,4 +127,8 @@ Since the ASN.1 formal notation is used for describing data transmitted by telec
 We observe the header file **rrc_nr.h** located in **srsRAN_4G/lib/include/srsran/asn1/**, in line **7686** we can see the struct for the **init_ue_id_c**. 
 The previous header file is used by the other **rrc_nr.h** located in **srsRAN_4G/srsue/hdr/stack/rrc_nr/**.
 
-We appended the code line below to print the random value chosen as initial UE id. 
+We appended the code line below in the **rrc_nr.cc** script to print the random value chosen as initial UE id. 
+```bash
+// Print UE ID as a bitstring
+  std::cout << "UE ID (random value): " << rrc_setup_req->ue_id.random_value().to_string() << std::endl;
+```
