@@ -52,13 +52,25 @@ sudo docker compose up --build 5gc
 ```
 
 ## Step 4: Build and compile a gNB
+Install dependencies
 ```bash
-apt-get install cmake make gcc g++ pkg-config libfftw3-dev libmbedtls-dev libsctp-dev libyaml-cpp-dev libgtest-dev libzmq3-dev git curl jq -y
-git clone https://github.com/srsran/srsRAN_Project.git
-cd srsRAN_Project/
-mkdir build
-cd build/
+sudo apt-get install cmake make gcc g++ pkg-config libfftw3-dev libmbedtls-dev libsctp-dev libyaml-cpp-dev libgtest-dev libzmq3-dev git curl jq -y
+```
+Compile the project
+```bash
+cd srsRAN_Project/build
 cmake ../ -DENABLE_EXPORT=ON -DENABLE_ZEROMQ=ON
 make -j`nproc`
-cp /root/srsRAN_Project/build/apps/gnb /usr/bin/gnb
+```
+```bash
+cd srsRAN_Project/build/apps
+gnb -h (to get the subcommands that can be used)
+```
+Download the two config files for gnb and ue from here: https://docs.srsran.com/projects/project/en/latest/tutorials/source/srsUE/source/index.html 
+
+Put the config files in srsrRAN_Project\configs directory 
+
+Run the gnb application
+```bash
+gnb -c /home/srsran-zmq/srsRAN_Project/configs/gnb_zmq.yaml
 ```
