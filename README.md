@@ -74,3 +74,10 @@ Run the gnb application
 ```bash
 gnb -c /home/srsran-zmq/srsRAN_Project/configs/gnb_zmq.yaml
 ```
+
+## Step 5: Build and compile a UE 
+Install dependencies
+```bash
+sudo apt-get install build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev git curl jq -y
+```
+
