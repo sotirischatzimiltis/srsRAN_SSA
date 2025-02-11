@@ -37,8 +37,13 @@ cd build
 cmake ../ -DENABLE_EXPORT=ON -DENABLE_ZEROMQ=ON
 make -j`nproc`
 ```
+```bash
+sudo make install
+sudo ldconfig
+```
 
-## Step 3: Configure RU, DU, and CU
+## Step 3: Install 5G core 
+Visit open 5g core webpage: https://open5gs.org/open5gs/docs/guide/01-quickstart/
 
 ### 1. Navigate to the configuration directory:
 ```bash
