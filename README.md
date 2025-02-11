@@ -129,6 +129,12 @@ The previous header file is used by the other **rrc_nr.h** located in **srsRAN_4
 
 We appended the code line below in the **rrc_nr.cc** script to print the random value chosen as initial UE id. 
 ```bash
-// Print UE ID as a bitstring
+  // Print UE ID as a bitstring
   std::cout << "UE ID (random value): " << rrc_setup_req->ue_id.random_value().to_string() << std::endl;
+```
+Compile again and run
+```bash
+cd /srsRAN_4G/build/
+make -j`nproc`
+sudo srsue /home/srsran-zmq/srsRAN_Project/configs/ue_zmq.conf
 ```
