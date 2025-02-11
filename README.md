@@ -83,7 +83,6 @@ sudo apt-get install build-essential cmake libfftw3-dev libmbedtls-dev libboost-
 Clone srsRAN_Project 4G since the ue is located there
 
 ```bash
-apt-get install build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev git curl jq -y
 git clone https://github.com/srsRAN/srsRAN_4G.git
 cd srsRAN_4G/
 mkdir build
