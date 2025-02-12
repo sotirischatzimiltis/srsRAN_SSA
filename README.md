@@ -143,3 +143,109 @@ sudo make install
 sudo srsue /home/srsran-zmq/srsRAN_Project/configs/ue_zmq.conf
 ```
 Find the ASN.1 file for the **init_ue_id_c** struct located in **srsRAN_4G/lib/include/srsran/asn1/rrc/ul_ccch_msg.h**
+```
+// InitialUE-Identity ::= CHOICE
+struct init_ue_id_c {
+  struct types_opts {
+    enum options { s_tmsi, random_value, nulltype } value;
+
+    const char* to_string() const;
+  };
+  typedef enumerated<types_opts> types;
+
+  // choice methods
+  init_ue_id_c() = default;
+  init_ue_id_c(const init_ue_id_c& other);
+  init_ue_id_c& operator=(const init_ue_id_c& other);
+  ~init_ue_id_c() { destroy_(); }
+  void        set(types::options e = types::nulltype);
+  types       type() const { return type_; }
+  SRSASN_CODE pack(bit_ref& bref) const;
+  SRSASN_CODE unpack(cbit_ref& bref);
+  void        to_json(json_writer& j) const;
+  // getters
+  s_tmsi_s& s_tmsi()
+  {
+    assert_choice_type(types::s_tmsi, type_, "InitialUE-Identity");
+    return c.get<s_tmsi_s>();
+  }
+  fixed_bitstring<40>& random_value()
+  {
+    assert_choice_type(types::random_value, type_, "InitialUE-Identity");
+    return c.get<fixed_bitstring<40> >();
+  }
+  const s_tmsi_s& s_tmsi() const
+  {
+    assert_choice_type(types::s_tmsi, type_, "InitialUE-Identity");
+    return c.get<s_tmsi_s>();
+  }
+  const fixed_bitstring<40>& random_value() const
+  {
+    assert_choice_type(types::random_value, type_, "InitialUE-Identity");
+    return c.get<fixed_bitstring<40> >();
+  }
+  s_tmsi_s&            set_s_tmsi();
+  fixed_bitstring<40>& set_random_value();
+
+private:
+  types                                          type_;
+  choice_buffer_t<fixed_bitstring<40>, s_tmsi_s> c;
+
+  void destroy_();
+};
+```
+
+Also **rrc_nr.h** exists in **srsRAN_4G/lib/include/srsran/asn1/** that we have a struct for the **initial_ue_id_c**
+```
+// InitialUE-Identity ::= CHOICE
+struct init_ue_id_c {
+  struct types_opts {
+    enum options { ng_minus5_g_s_tmsi_part1, random_value, nulltype } value;
+    typedef int8_t number_type;
+
+    const char* to_string() const;
+    int8_t      to_number() const;
+  };
+  typedef enumerated<types_opts> types;
+
+  // choice methods
+  init_ue_id_c() = default;
+  init_ue_id_c(const init_ue_id_c& other);
+  init_ue_id_c& operator=(const init_ue_id_c& other);
+  ~init_ue_id_c() { destroy_(); }
+  void        set(types::options e = types::nulltype);
+  types       type() const { return type_; }
+  SRSASN_CODE pack(bit_ref& bref) const;
+  SRSASN_CODE unpack(cbit_ref& bref);
+  void        to_json(json_writer& j) const;
+  // getters
+  fixed_bitstring<39>& ng_minus5_g_s_tmsi_part1()
+  {
+    assert_choice_type(types::ng_minus5_g_s_tmsi_part1, type_, "InitialUE-Identity");
+    return c.get<fixed_bitstring<39> >();
+  }
+  fixed_bitstring<39>& random_value()
+  {
+    assert_choice_type(types::random_value, type_, "InitialUE-Identity");
+    return c.get<fixed_bitstring<39> >();
+  }
+  const fixed_bitstring<39>& ng_minus5_g_s_tmsi_part1() const
+  {
+    assert_choice_type(types::ng_minus5_g_s_tmsi_part1, type_, "InitialUE-Identity");
+    return c.get<fixed_bitstring<39> >();
+  }
+  const fixed_bitstring<39>& random_value() const
+  {
+    assert_choice_type(types::random_value, type_, "InitialUE-Identity");
+    return c.get<fixed_bitstring<39> >();
+  }
+  fixed_bitstring<39>& set_ng_minus5_g_s_tmsi_part1();
+  fixed_bitstring<39>& set_random_value();
+
+private:
+  types                                 type_;
+  choice_buffer_t<fixed_bitstring<39> > c;
+
+  void destroy_();
+};
+```
