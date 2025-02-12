@@ -136,5 +136,6 @@ Compile again and run
 ```bash
 cd /srsRAN_4G/build/
 make -j`nproc`
+sudo make install
 sudo srsue /home/srsran-zmq/srsRAN_Project/configs/ue_zmq.conf
 ```
