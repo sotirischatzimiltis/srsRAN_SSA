@@ -129,8 +129,11 @@ The previous header file is used by the other **rrc_nr.h** located in **srsRAN_4
 
 We appended the code line below in the **rrc_nr.cc** script to print the random value chosen as initial UE id. 
 ```bash
-  // Print UE ID as a bitstring
-  std::cout << "UE ID (random value): " << rrc_setup_req->ue_id.random_value().to_string() << std::endl;
+#include <bitset>
+// Print UE ID as a decimal  and bitstring
+std::cout << "UE ID (random_id - decimal): " << random_id << std::endl;
+std::bitset<40> binary_representation(random_id);
+std::cout << "UE ID (random_id - binary): " << binary_representation << std::endl;
 ```
 Compile again and run
 ```bash
