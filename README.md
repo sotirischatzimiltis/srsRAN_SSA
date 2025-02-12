@@ -139,3 +139,4 @@ make -j`nproc`
 sudo make install
 sudo srsue /home/srsran-zmq/srsRAN_Project/configs/ue_zmq.conf
 ```
+Find the ASN.1 file for the **init_ue_id_c** struct located in **srsRAN_4G/lib/include/srsran/asn1/rrc/ul_ccch_msg.h**
